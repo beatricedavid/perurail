@@ -57,7 +57,7 @@ public class Tests extends BaseClass {
         driver.findElement(By.id("txt_telefono[suite][cab1][1]")).sendKeys("1234567890");
         driver.findElement(By.id("txt_mail[suite][cab1][1]")).sendKeys("abc@msn.com");
         driver.findElement(By.id("txt_mail_conf[suite][cab1][1]")).sendKeys("abc@msn.com");
-
+        driver.findElement(By.id("btnContinuarPas")).click();
     }
 
     @Test (dataProvider = "dataReserva")

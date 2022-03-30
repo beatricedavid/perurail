@@ -22,7 +22,7 @@ public class Tests extends BaseClass {
         driver.findElement(By.xpath("//a[@class='ui-datepicker-next ui-corner-all']")).click();
         driver.findElement(By.xpath("//a[normalize-space()='27']")).click();
         driver.findElement(By.id("btn_search")).click();
-
+        //nota
         if (cabins == "SUITE CABINS"){
             Select selectCabins = new Select (driver.findElement(By.name("selectRooms[suite]")));
             selectCabins.selectByVisibleText(numOfCabin);
@@ -46,6 +46,18 @@ public class Tests extends BaseClass {
         Assert.assertEquals(cartShoppingTotal, subTotal);
         Assert.assertEquals(total, subTotal);
         driver.findElement(By.id("continuar_bae")).click();
+
+        driver.findElement(By.id("txt_nombre[suite][cab1][1]")).sendKeys("Juan");
+        driver.findElement(By.id("txt_apellido[suite][cab1][1]")).sendKeys("Gomez");
+        Select selectNationality = new Select (driver.findElement(By.name("sel_nacion[suite][cab1][1]")));
+        selectNationality.selectByVisibleText("Argentina");
+        Select selectDocument = new Select (driver.findElement(By.name("sel_tpdoc[suite][cab1][1]")));
+        selectDocument.selectByVisibleText("Identification Card");
+        driver.findElement(By.id("txt_nroid[suite][cab1][1]")).sendKeys("12345678");
+        driver.findElement(By.id("txt_telefono[suite][cab1][1]")).sendKeys("1234567890");
+        driver.findElement(By.id("txt_mail[suite][cab1][1]")).sendKeys("abc@msn.com");
+        driver.findElement(By.id("txt_mail_conf[suite][cab1][1]")).sendKeys("abc@msn.com");
+        driver.findElement(By.id("btnContinuarPas")).click();
     }
 
     @Test (dataProvider = "dataReserva")
